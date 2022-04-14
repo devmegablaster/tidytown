@@ -4,7 +4,7 @@ import Login from '../components/Login/Login'
 
 function signup() {
   return (
-    <div className="h-screen w-screen overflow-y-hidden">
+    <div className="h-screen w-screen overflow-y-scroll">
       <Header />
       <div className="flex h-full w-full">
         <Login />
