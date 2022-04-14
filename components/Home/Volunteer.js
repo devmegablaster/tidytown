@@ -3,7 +3,7 @@ import { MoodHappy } from 'tabler-icons-react'
 
 function Volunteer() {
   return (
-    <div className="mt-16 flex flex-col items-center justify-center bg-gray-100 py-6">
+    <div className="mt-20 flex flex-col items-center justify-center bg-gray-100 py-8">
       <p className="font-bold text-gray-800">See TidyTown</p>
       <p className="mt-1 text-gray-600">
         Now disposing segregated waste will get you Genz points!

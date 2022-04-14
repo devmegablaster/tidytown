@@ -49,7 +49,7 @@ const BtnSignUp = () => (
 
 function Header() {
   return (
-    <div className=" flex items-center justify-between px-14 py-8">
+    <div className="sticky top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-14 py-6 shadow-lg">
       <img src="tidytown.svg" alt="" className="h-10" />
       <div className="flex space-x-4">
         {links.map((btn) => {

@@ -19,7 +19,7 @@ const RenderFeature = ({ feature }) => (
 
 function Features() {
   return (
-    <div className="mt-10 grid w-full grid-cols-2">
+    <div className="mt-20 grid w-full grid-cols-2">
       <img src="Skater.svg" alt="" />
       <div className="flex flex-col items-center justify-center">
         <div className="flex max-w-sm flex-col">
