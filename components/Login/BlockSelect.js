@@ -4,7 +4,7 @@ import { Building } from 'tabler-icons-react'
 
 function BlockSelect() {
   return (
-    <div className="w-full">
+    <div className="mt-4 w-full sm:mt-0">
       <h3 className="font-medium text-gray-500">Block</h3>
       <Select
         placeholder="Pick one"

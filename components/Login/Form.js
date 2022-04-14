@@ -7,9 +7,9 @@ import { Button } from '@mantine/core'
 
 function Form() {
   return (
-    <div className="flex w-full flex-col pr-20">
+    <div className="flex w-full flex-col pr-0 md:pr-20">
       <div className="flex flex-col space-y-4">
-        <div className="flex space-x-8">
+        <div className="flex flex-col sm:flex-row sm:space-x-8">
           <Field
             label={'First Name'}
             icon={<User className="text-green-500" />}
@@ -19,7 +19,7 @@ function Form() {
             icon={<Users className="text-green-500" />}
           />
         </div>
-        <div className="flex space-x-8">
+        <div className="flex flex-col sm:flex-row sm:space-x-8">
           <Field
             label={'Email Address'}
             icon={<At className="text-green-500" />}
@@ -30,7 +30,7 @@ function Form() {
           />
         </div>
         <SocietySelect />
-        <div className="flex space-x-8">
+        <div className="flex flex-col sm:flex-row sm:space-x-8">
           <Field
             label={'House Number'}
             icon={<Home className="text-green-500" />}

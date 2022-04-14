@@ -24,7 +24,7 @@ const Links = ({ route, text }) => (
 const BtnSignIn = () => (
   <div>
     <button
-      className=" border-b border-transparent px-4 py-2 duration-150 hover:scale-105 hover:border-black active:scale-95"
+      className=" border-b border-transparent px-2 py-1 duration-150 hover:scale-105 hover:border-black active:scale-95 md:px-4 md:py-2"
       onClick={() => {
         Router.push('/signin')
       }}
@@ -37,7 +37,7 @@ const BtnSignIn = () => (
 const BtnSignUp = () => (
   <div>
     <button
-      className="rounded-full border border-green-500 px-4 py-2 text-green-500 duration-150 hover:scale-105 hover:bg-green-500 hover:text-white hover:shadow-lg active:scale-95"
+      className="rounded-full border border-green-500 px-2 py-1 text-sm text-green-500 duration-150 hover:scale-105 hover:bg-green-500 hover:text-white hover:shadow-lg active:scale-95 md:px-4 md:py-2 md:text-base"
       onClick={() => {
         Router.push('/signup')
       }}
@@ -49,16 +49,16 @@ const BtnSignUp = () => (
 
 function Header() {
   return (
-    <div className="sticky top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-14 py-6 shadow-lg">
+    <div className="sticky top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-6 py-5 text-sm shadow-lg md:px-14 md:py-6 md:text-base">
       <img
         src="tidytown.svg"
         alt=""
-        className="h-10 cursor-pointer"
+        className="h-6 cursor-pointer md:h-10"
         onClick={() => {
           Router.push('/')
         }}
       />
-      <div className="flex space-x-4">
+      <div className="hidden space-x-4 md:flex">
         {links.map((btn) => {
           return <Links text={btn.text} route={btn.route} />
         })}

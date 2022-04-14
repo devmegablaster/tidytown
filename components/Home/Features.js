@@ -19,8 +19,8 @@ const RenderFeature = ({ feature }) => (
 
 function Features() {
   return (
-    <div className="mt-20 grid w-full grid-cols-2">
-      <img className="w-10/12 pl-10" src="Skater.svg" alt="" />
+    <div className="mt-20 grid w-full grid-cols-1 px-4 sm:grid-cols-2 sm:px-0">
+      <img className="hidden w-10/12 pl-10 sm:flex" src="Skater.svg" alt="" />
       <div className="flex flex-col items-center justify-center">
         <div className="flex max-w-sm flex-col">
           <h2 className="text-3xl">We Provide Many Features You Can Use</h2>
@@ -35,6 +35,11 @@ function Features() {
           </div>
         </div>
       </div>
+      <img
+        className="mt-10 flex w-10/12 pl-10 sm:hidden"
+        src="Skater.svg"
+        alt=""
+      />
     </div>
   )
 }
