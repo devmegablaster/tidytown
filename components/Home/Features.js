@@ -20,7 +20,7 @@ const RenderFeature = ({ feature }) => (
 function Features() {
   return (
     <div className="mt-20 grid w-full grid-cols-2">
-      <img src="Skater.svg" alt="" />
+      <img className="w-10/12 pl-10" src="Skater.svg" alt="" />
       <div className="flex flex-col items-center justify-center">
         <div className="flex max-w-sm flex-col">
           <h2 className="text-3xl">We Provide Many Features You Can Use</h2>

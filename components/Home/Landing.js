@@ -28,7 +28,7 @@ function Landing() {
           </div>
         </div>
       </div>
-      <img src="ManThrowGarb.svg" alt="" />
+      <img className="w-10/12 pr-10" src="ManThrowGarb.svg" alt="" />
     </div>
   )
 }
