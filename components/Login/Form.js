@@ -45,7 +45,7 @@ function Form() {
       </div>
       <Button
         variant="gradient"
-        className="mt-5 w-fit self-center bg-gradient-to-r from-teal-500 to-lime-500 duration-150 hover:scale-105"
+        className="mt-5 mb-5 w-fit self-center bg-gradient-to-r from-teal-500 to-lime-500 duration-150 hover:scale-105 md:mb-0"
         size="lg"
       >
         Sign Up!
