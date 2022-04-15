@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import React from 'react'
 import { MoodHappy } from 'tabler-icons-react'
 
@@ -23,7 +24,12 @@ function Volunteer() {
             Volunteer Us as a Waste Collector and earn monthly wages!
           </h3>
         </div>
-        <button className="rounded-xl bg-green-500 px-4 py-2 text-sm font-medium text-white duration-150 hover:scale-105 hover:bg-green-600 active:scale-95 sm:text-base">
+        <button
+          onClick={() => {
+            Router.push('/collector')
+          }}
+          className="rounded-xl bg-green-500 px-4 py-2 text-sm font-medium text-white duration-150 hover:scale-105 hover:bg-green-600 active:scale-95 sm:text-base"
+        >
           Volunteer Us!
         </button>
       </div>

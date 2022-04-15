@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import SignIn from '../components/SignIn/SignIn'
 import { Loader } from '@mantine/core'
-import { app } from '../firebase'
+import db, { app } from '../firebase'
 import firebase from 'firebase'
 import Router from 'next/router'
 
@@ -11,7 +11,17 @@ function signin() {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        Router.push('/dashboard')
+        db.collection('Users')
+          .doc(user.uid)
+          .get()
+          .then((data) => {
+            if (data.exists) {
+              Router.push('/dashboard')
+            } else {
+              setLoading(false)
+              firebase.auth().signOut()
+            }
+          })
       } else {
         setLoading(false)
       }

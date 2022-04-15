@@ -3,6 +3,7 @@ import Field from '../Login/Field'
 import { Alert, LoadingOverlay, Button } from '@mantine/core'
 import { Users, User, AlertCircle, At, Key } from 'tabler-icons-react'
 import firebase from 'firebase'
+import db from '../../firebase'
 
 function Form() {
   const [visible, setVisible] = useState(false)
@@ -19,7 +20,21 @@ function Form() {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then((user) => {
-          console.log(user)
+          db.collection('Users')
+            .doc(user.user.uid)
+            .get()
+            .then((data) => {
+              if (data.exists) {
+                console.log(user)
+              } else {
+                firebase.auth().signOut()
+                setText(
+                  'This User is not a TidyTown Customer, You may want to check the Collector Portal!'
+                )
+                setVisible(false)
+                setAlert(true)
+              }
+            })
         })
         .catch((err) => {
           setText(err.message)
@@ -55,7 +70,7 @@ function Form() {
               onChange={setEmail}
             />
             <Field
-              label={'Last Name'}
+              label={'Password'}
               icon={<Key className="text-green-500" />}
               value={password}
               onChange={setPassword}

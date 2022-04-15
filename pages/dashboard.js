@@ -25,10 +25,14 @@ function dashboard() {
             .doc(user.uid)
             .get()
             .then((data) => {
-              const userData = data.data()
-              userData.photoURL = user.photoURL
-              setUser(userData)
-              setLoading(false)
+              if (data.exists) {
+                const userData = data.data()
+                userData.photoURL = user.photoURL
+                setUser(userData)
+                setLoading(false)
+              } else {
+                firebase.auth().signOut()
+              }
             })
         }
       })
