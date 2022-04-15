@@ -16,21 +16,20 @@ function dashboard() {
     if (user.loading) {
       firebase.auth().onAuthStateChanged(async (user) => {
         if (!user) {
-          Router.push('/login')
-        }
-        if (!user.emailVerified) {
+          Router.push('/signin')
+        } else if (!user.emailVerified) {
           setIsVerified(false)
+        } else {
+          db.collection('Users')
+            .doc(user.uid)
+            .get()
+            .then((data) => {
+              const userData = data.data()
+              userData.photoURL = user.photoURL
+              setUser(userData)
+              setLoading(false)
+            })
         }
-
-        db.collection('Users')
-          .doc(user.uid)
-          .get()
-          .then((data) => {
-            const userData = data.data()
-            userData.photoURL = user.photoURL
-            setUser(userData)
-            setLoading(false)
-          })
       })
     }
   }, [user])

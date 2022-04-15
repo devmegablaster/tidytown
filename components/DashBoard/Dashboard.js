@@ -11,10 +11,10 @@ function Dashboard({ user, setActive }) {
       <h3 className="pl-4 text-4xl text-gray-900">{user.name}</h3>
       <p className="mt-4 pl-4 font-bold">Dashboard Overview</p>
       <div className="flex w-full flex-col space-y-4">
-        <div className="mt-10 flex w-full space-x-6">
-          <Multiplier multiplier={1.45} />
+        <div className="mt-10 flex w-full flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6">
+          <Multiplier multiplier={user.multiplier} />
           <QRCode uid={user.uid} />
-          <Points points={20} setActive={setActive} />
+          <Points points={user.points} setActive={setActive} />
         </div>
         <PointsHistory />
       </div>

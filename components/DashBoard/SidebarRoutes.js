@@ -13,8 +13,10 @@ function SidebarRoutes({ active, setActive }) {
     >
       <button
         className={`${
-          active[index] ? 'border-green-800' : 'border-transparent'
-        } flex w-full items-center space-x-4 border-l-[9px] py-4 pl-5 text-lg font-bold text-white`}
+          active[index]
+            ? 'border-green-800'
+            : 'border-transparent hover:border-green-300'
+        } flex w-full items-center space-x-4 border-l-[10px] py-4 pl-5 text-lg font-bold text-white duration-150`}
       >
         {icon}
         <p>{text}</p>

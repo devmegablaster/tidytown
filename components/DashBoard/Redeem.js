@@ -11,15 +11,25 @@ function Redeem({ user }) {
         enz Points!
       </p>
       <div className="ml-4 mt-6 flex w-fit rounded-full bg-[#B2DA8E] px-4 py-2">
-        <p className="mr-2 font-bold text-gray-900">50</p>
+        <p className="mr-2 font-bold text-gray-900">{user.points}</p>
         <img src="genz.svg" alt="" />
         enz Coins Left
       </div>
-      <div className="mt-10 grid w-full grid-cols-3">
+      <div className="mt-10 grid w-full grid-cols-3 gap-4">
         <RedeemCard
           text={'Boat 10% discount on Headphones and PowerBanks!'}
           points={40}
-          image="tidytown.svg"
+          image="boat.svg"
+        />
+        <RedeemCard
+          text={'Amazon 20% discount on Electronics and Essentials!'}
+          points={80}
+          image="https://www.logo.wine/a/logo/Amazon_(company)/Amazon_(company)-Logo.wine.svg"
+        />
+        <RedeemCard
+          text={'Swiggy Buy 1 Get 1 Free on Selected Restraunts!'}
+          points={20}
+          image="swiggy.svg"
         />
       </div>
     </div>

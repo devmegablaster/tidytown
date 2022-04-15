@@ -2,7 +2,7 @@ import React from 'react'
 
 function Points({ points, setActive }) {
   return (
-    <div className="flex h-full w-1/3 flex-col items-center justify-between space-y-6 rounded-xl bg-[#B2DA8E] px-6 py-16">
+    <div className="flex h-full w-full flex-col items-center justify-between space-y-6 rounded-xl bg-[#B2DA8E] px-6 py-16 md:w-1/3">
       <h1 className="flex items-end text-3xl text-black">
         <img src="genz.svg" className="h-10" alt="Loading..." />
         enz Points

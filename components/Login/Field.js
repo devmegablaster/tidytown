@@ -4,7 +4,7 @@ import { Input } from '@mantine/core'
 function Field({ label, icon, password, value, onChange }) {
   return (
     <div className="w-full">
-      <h3 className="font-medium text-gray-500">{label}</h3>
+      <h3 className="w-full font-medium text-gray-500">{label}</h3>
       <Input
         icon={icon}
         type={password ? 'password' : 'text'}

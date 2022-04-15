@@ -61,6 +61,9 @@ function Form() {
               society: society,
               houseNo: house,
               block: block,
+              points: 20,
+              multiplier: 1.25,
+              changes: [],
             })
             .then(() => {
               console.log('HERE')
