@@ -19,7 +19,8 @@ function dashboard() {
           Router.push('/signin')
         } else if (!user.emailVerified) {
           setIsVerified(false)
-        } else {
+        }
+        if (user) {
           db.collection('Users')
             .doc(user.uid)
             .get()
