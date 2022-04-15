@@ -41,7 +41,8 @@ function dashboard() {
   if (!isVerified) {
     return (
       <div className="flex h-screen w-screen flex-col items-center justify-center">
-        <div className="flex w-1/3 flex-col space-y-4 rounded-lg border border-green-500 px-4 py-10 text-center shadow-xl">
+        <img src="tidytown.svg" className="mb-10 h-10 " alt="" />
+        <div className="flex w-10/12 flex-col space-y-4 rounded-lg border border-green-500 px-4 py-10 text-center shadow-xl md:w-1/3">
           <h1 className="text-3xl text-green-500">Account Created!</h1>
           <p className=" text-gray-500">
             Please Verify your Email Address to continue!
