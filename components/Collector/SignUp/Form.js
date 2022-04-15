@@ -70,7 +70,7 @@ function Form() {
     }
   }
   return (
-    <div className=" h-screen w-7/12 rounded-l-3xl bg-white pt-2">
+    <div className=" h-screen w-full bg-white pt-2 md:w-7/12 md:rounded-l-3xl">
       <img
         src="https://gist.githubusercontent.com/MEGA-BLASTER2004/4c4dbac51a6847480da5b89c9829f370/raw/ce89721ecc75a307c08bfd01663fba7515dc2de8/tidytown.svg"
         alt=""
@@ -96,7 +96,7 @@ function Form() {
           value={name}
           onChange={setName}
         />
-        <div className="flex space-x-4">
+        <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           <Field
             label={'Email Address'}
             icon={<At className="text-green-500" />}
@@ -116,7 +116,7 @@ function Form() {
           value={aadhar}
           onChange={setAadhar}
         />
-        <div className="flex space-x-4">
+        <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           <Field
             label={'City'}
             icon={<MapPin className="text-green-500" />}
@@ -148,7 +148,7 @@ function Form() {
           </Button>
         </div>
       </form>
-      <p className="mt-4 text-center text-gray-500">
+      <p className="mt-4 pb-10 text-center text-gray-500 md:pb-0">
         Already have an account?{' '}
         <span className="cursor-pointer text-green-500">Log In</span>
       </p>

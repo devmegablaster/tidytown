@@ -59,7 +59,7 @@ function Form() {
     }
   }
   return (
-    <div className=" h-screen w-7/12 rounded-l-3xl bg-white pt-2">
+    <div className=" h-screen w-full bg-white pt-2 md:w-7/12 md:rounded-l-3xl">
       <img
         src="https://gist.githubusercontent.com/MEGA-BLASTER2004/4c4dbac51a6847480da5b89c9829f370/raw/ce89721ecc75a307c08bfd01663fba7515dc2de8/tidytown.svg"
         alt=""
