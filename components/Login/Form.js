@@ -45,7 +45,7 @@ function Form() {
       setVisible(true)
       firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(email.trim(), password.trim())
         .then((user) => {
           user.user.updateProfile({
             displayName: firstName,
