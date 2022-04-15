@@ -15,7 +15,7 @@ function Redeem({ user }) {
         <img src="genz.svg" alt="" />
         enz Coins Left
       </div>
-      <div className="mt-10 grid w-full grid-cols-3 gap-4">
+      <div className="mt-10 grid w-full grid-cols-1 gap-4 md:grid-cols-3">
         <RedeemCard
           text={'Boat 10% discount on Headphones and PowerBanks!'}
           points={40}

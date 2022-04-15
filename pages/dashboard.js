@@ -62,7 +62,7 @@ function dashboard() {
 
   if (isVerified) {
     return (
-      <div className="flex h-screen w-screen overflow-hidden">
+      <div className="flex h-screen w-screen flex-col overflow-hidden lg:flex-row">
         <Sidebar user={user} active={active} setActive={setActive} />
         {active[0] ? (
           <Dashboard user={user} setActive={setActive} />
