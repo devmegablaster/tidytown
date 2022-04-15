@@ -149,7 +149,7 @@ function Form() {
           title="Error"
           className={`${
             alert ? 'flex' : 'hidden'
-          } absolute right-5 bottom-5 shadow-xl`}
+          } absolute right-0 bottom-0 z-50 m-2 shadow-xl md:right-5 md:bottom-5 md:m-0`}
           color="red"
           variant="filled"
           onClose={() => setAlert(false)}
