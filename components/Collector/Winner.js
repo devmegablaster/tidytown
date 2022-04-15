@@ -3,7 +3,7 @@ import React from 'react'
 function Winner() {
   return (
     <div
-      className="relative h-screen w-screen bg-gray-50"
+      className="relative hidden h-screen w-screen bg-gray-50 md:flex"
       style={{
         backgroundImage: `url("Group.svg")`,
         backgroundPosition: 'center',
@@ -21,7 +21,7 @@ function Winner() {
       </div>
       <img
         src="Truck.svg"
-        className="md:h-86 absolute bottom-0 pr-10 md:-bottom-20 md:left-0 md:pr-0"
+        className="md:h-86 absolute bottom-0 hidden pr-10 md:-bottom-20 md:left-0 md:flex md:pr-0"
         alt=""
       />
     </div>
