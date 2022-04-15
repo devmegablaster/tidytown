@@ -5,31 +5,35 @@ import db from '../firebase'
 import { Loader } from '@mantine/core'
 import Sidebar from '../components/DashBoard/Sidebar'
 import Dashboard from '../components/DashBoard/Dashboard'
+import Redeem from '../components/DashBoard/Redeem'
 
 function dashboard() {
   const [isVerified, setIsVerified] = useState(true)
   const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({ loading: true })
+  const [active, setActive] = useState([1, 0, 0, 0])
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      if (!user) {
-        Router.push('/login')
-      }
-      if (!user.emailVerified) {
-        setIsVerified(false)
-      }
+    if (user.loading) {
+      firebase.auth().onAuthStateChanged(async (user) => {
+        if (!user) {
+          Router.push('/login')
+        }
+        if (!user.emailVerified) {
+          setIsVerified(false)
+        }
 
-      db.collection('Users')
-        .doc(user.uid)
-        .get()
-        .then((data) => {
-          const userData = data.data()
-          userData.photoURL = user.photoURL
-          setUser(userData)
-          setLoading(false)
-        })
-    })
-  })
+        db.collection('Users')
+          .doc(user.uid)
+          .get()
+          .then((data) => {
+            const userData = data.data()
+            userData.photoURL = user.photoURL
+            setUser(userData)
+            setLoading(false)
+          })
+      })
+    }
+  }, [user])
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center">
@@ -54,9 +58,13 @@ function dashboard() {
 
   if (isVerified) {
     return (
-      <div className="flex h-screen w-screen">
-        <Sidebar />
-        <Dashboard />
+      <div className="flex h-screen w-screen overflow-hidden">
+        <Sidebar user={user} active={active} setActive={setActive} />
+        {active[0] ? (
+          <Dashboard user={user} setActive={setActive} />
+        ) : (
+          <Redeem user={user} />
+        )}
       </div>
     )
   }
