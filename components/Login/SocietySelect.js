@@ -2,7 +2,7 @@ import React from 'react'
 import { Select } from '@mantine/core'
 import { BuildingCommunity } from 'tabler-icons-react'
 
-function SocietySelect() {
+function SocietySelect({ value, onChange }) {
   return (
     <div className="w-full">
       <h3 className="font-medium text-gray-500">Society</h3>
@@ -10,6 +10,8 @@ function SocietySelect() {
         placeholder="Pick one"
         size="md"
         searchable
+        value={value}
+        onChange={onChange}
         icon={<BuildingCommunity className="text-green-500" />}
         data={[
           { value: '1', label: 'Gokuldham Society' },
