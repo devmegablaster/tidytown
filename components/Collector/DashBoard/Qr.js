@@ -55,10 +55,10 @@ function Qr({ user }) {
           </h3>
         </div>
       </div>
-      <div className="mt-5 text-center text-xl font-bold text-gray-700">
-        Scan QR Code
-      </div>
       <QrReader
+        constraints={{
+          facingMode: 'environment',
+        }}
         onResult={(result, error) => {
           if (!!result) {
             setData(result?.text)
