@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import db from '../../../firebase'
+import firebase from 'firebase'
 
 const RenderInputs = ({ setVal, val, image, visible, text }) => (
   <div
@@ -146,31 +147,33 @@ function Collect({ user, scannedUser, setRed }) {
         />
         <button
           onClick={() => {
+            const stamp = new Date()
             db.collection('Users')
               .doc(scannedUser.uid)
               .update({
-                points: paper * 2 + organic * 1 + ewaste * 10,
+                points:
+                  scannedUser.points + (paper * 2 + organic * 1 + ewaste * 10),
                 changes: firebase.firestore.FieldValue.arrayUnion({
                   type: 'collect',
                   paper,
                   organic,
                   ewaste,
                   points: paper * 2 + organic * 1 + ewaste * 10,
-                  timestamp: new Date().now(),
+                  timestamp: stamp,
                 }),
               })
               .then(() => {
                 db.collection('Collectors')
                   .doc(user.uid)
                   .update({
-                    total: paper + organic + ewaste,
+                    total: user.total + paper + organic + ewaste,
                     changes: firebase.firestore.FieldValue.arrayUnion({
                       type: 'collect',
                       paper,
                       organic,
                       ewaste,
                       points: paper * 2 + organic * 1 + ewaste * 10,
-                      timestamp: new Date().now(),
+                      timestamp: stamp,
                     }),
                   })
                   .then(() => {
