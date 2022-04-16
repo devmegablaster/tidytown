@@ -5,6 +5,7 @@ import firebase from 'firebase'
 import DashBoard from '../../components/Collector/DashBoard/DashBoard'
 import NavBar from '../../components/Collector/DashBoard/NavBar'
 import Qr from '../../components/Collector/DashBoard/Qr'
+import Router from 'next/router'
 
 function dashboard() {
   const [emailVerified, setEmailVerified] = useState(true)
