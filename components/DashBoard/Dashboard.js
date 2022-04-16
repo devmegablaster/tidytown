@@ -19,7 +19,7 @@ function Dashboard({ user, setActive }) {
             <QRCode uid={user.uid} setExpand={setExpand} />
             <Points points={user.points} setActive={setActive} />
           </div>
-          <PointsHistory />
+          <PointsHistory changes={user.changes} />
         </div>
       </div>
     )

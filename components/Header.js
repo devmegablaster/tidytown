@@ -2,10 +2,10 @@ import Router from 'next/router'
 import React from 'react'
 
 const links = [
-  { text: 'About', route: '/about' },
-  { text: 'Features', route: '/features' },
-  { text: 'Join Us', route: '/join' },
-  { text: 'Connect', route: '/connect' },
+  { text: 'About', route: '/' },
+  { text: 'Features', route: '/' },
+  { text: 'Join Us', route: '/' },
+  { text: 'Connect', route: '/' },
 ]
 
 const Links = ({ route, text }) => (

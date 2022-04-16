@@ -23,7 +23,7 @@ function DashBoard({ user, setActive }) {
       </div>
       <Streak streak={user.streak} total={user.total} />
       <PickUp setActive={setActive} />
-      <Recent />
+      <Recent changes={user.changes} />
     </div>
   )
 }

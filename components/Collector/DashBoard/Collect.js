@@ -147,7 +147,7 @@ function Collect({ user, scannedUser, setRed }) {
         />
         <button
           onClick={() => {
-            const stamp = new Date()
+            const stamp = Date()
             db.collection('Users')
               .doc(scannedUser.uid)
               .update({
@@ -176,6 +176,7 @@ function Collect({ user, scannedUser, setRed }) {
                       type: 'collect',
                       paper,
                       organic,
+                      userId: scannedUser.uid,
                       ewaste,
                       points: paper * 2 + organic * 1 + ewaste * 10,
                       timestamp: stamp,

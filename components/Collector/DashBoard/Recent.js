@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, History } from 'tabler-icons-react'
 import RecentCard from './RecentCard'
 
-function Recent({ setActive }) {
+function Recent({ setActive, changes }) {
   return (
     <div className="mx-auto mt-10 flex w-11/12 flex-col rounded-xl bg-[#EAF4F3] p-4">
       <div className="flex items-start space-x-4">
@@ -16,7 +16,15 @@ function Recent({ setActive }) {
           </p>
         </div>
       </div>
-      {/* <RecentCard /> */}
+      {changes.map((change) => {
+        return (
+          <RecentCard
+            uid={change.userId}
+            type={change.type}
+            points={change.points}
+          />
+        )
+      })}
     </div>
   )
 }
