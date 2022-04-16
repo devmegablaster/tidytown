@@ -87,7 +87,11 @@ function dashboard() {
   if (isVerified) {
     return (
       <div className="h-screen w-screen">
-        {active[0] ? <DashBoard user={user} /> : <Qr user={user} />}
+        {active[0] ? (
+          <DashBoard user={user} setActive={setActive} />
+        ) : (
+          <Qr user={user} />
+        )}
         <NavBar active={active} setActive={setActive} />
       </div>
     )

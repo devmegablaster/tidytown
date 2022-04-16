@@ -50,7 +50,7 @@ function Form() {
                 phone,
                 aadhar,
                 total: 0,
-                streak: 0,
+                streak: 10,
                 changes: [],
                 city,
                 state,

@@ -4,7 +4,7 @@ import PickUp from './PickUp'
 import Recent from './Recent'
 import Streak from './Streak'
 
-function DashBoard({ user }) {
+function DashBoard({ user, setActive }) {
   console.log(user.photoURL)
   return (
     <div className="flex h-screen w-screen flex-col">
@@ -21,8 +21,8 @@ function DashBoard({ user }) {
           </h3>
         </div>
       </div>
-      <Streak streak={10} total={20} />
-      <PickUp />
+      <Streak streak={user.streak} total={user.total} />
+      <PickUp setActive={setActive} />
       <Recent />
     </div>
   )

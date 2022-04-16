@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { QrReader } from 'react-qr-reader'
 import db from '../../../firebase'
@@ -39,8 +40,27 @@ function Qr({ user }) {
 
   if (red) {
     return (
-      <div>
-        <h1>Done</h1>
+      <div className="flex h-screen w-screen flex-col items-center justify-center">
+        <img
+          src="https://gist.githubusercontent.com/MEGA-BLASTER2004/2adfdaddcf240e20f87f2cf982f444f9/raw/f3b39d0df116d9c07b59be040a89107ef516ab93/earth.svg"
+          alt=""
+          className="w-1/2"
+        />
+        <h1 className="mt-10 text-xl font-medium text-gray-600">
+          Thanks for the
+        </h1>
+        <h1 className="text-xl font-bold text-green-500">Waste Collection!</h1>
+        <h3 className="mt-5 text-lg font-light text-gray-400">
+          One step closer...to a TidyTown!
+        </h3>
+        <button
+          onClick={() => {
+            Router.push('/collector/dashboard')
+          }}
+          className="mt-5 rounded-xl bg-green-500 p-2 text-white"
+        >
+          Return To Dashboard
+        </button>
       </div>
     )
   }

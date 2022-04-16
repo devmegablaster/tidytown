@@ -15,7 +15,12 @@ function PickUp({ setActive }) {
           </p>
         </div>
       </div>
-      <button className="mt-2 mr-6 self-end rounded-lg bg-[#B7C67B] px-6 py-1 font-bold text-white">
+      <button
+        onClick={() => {
+          setActive([0, 1, 0])
+        }}
+        className="mt-2 mr-6 self-end rounded-lg bg-[#B7C67B] px-6 py-1 font-bold text-white"
+      >
         GO
       </button>
     </div>
