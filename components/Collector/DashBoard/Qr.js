@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { QrReader } from 'react-qr-reader'
 import db from '../../../firebase'
+import Collect from './Collect'
 
-const RenderScannedUser = ({ name, society, block, house }) => {
+const RenderScannedUser = ({ setCon, name, society, block, house }) => {
   return (
     <div className="mx-auto flex w-11/12 flex-col items-center justify-center space-y-4">
       <div
@@ -18,6 +19,7 @@ const RenderScannedUser = ({ name, society, block, house }) => {
           </h3>
         </div>
         <button
+          onClick={() => setCon(true)}
           className={`${
             name ? 'flex' : 'hidden'
           } rounded-lg bg-green-500 p-2 text-white`}
@@ -31,15 +33,17 @@ const RenderScannedUser = ({ name, society, block, house }) => {
 
 function Qr({ user }) {
   const [scannedUser, setScannedUser] = useState({})
-  const handleError = (err) => {
-    console.log(err)
-  }
-
-  const handleScan = (data) => {
-    console.log(data)
-  }
-
   const [data, setData] = useState('')
+  const [con, setCon] = useState(false)
+
+  if (con) {
+    return (
+      <div className="h-screen w-screen">
+        <Collect scannedUser={scannedUser} user={user} />
+      </div>
+    )
+  }
+
   return (
     <div className="flex h-screen flex-col">
       <div className="mx-auto mt-5 flex w-11/12 items-center space-x-4">
@@ -87,6 +91,7 @@ function Qr({ user }) {
         block={scannedUser.block}
         house={scannedUser.houseNo}
         society={scannedUser.society}
+        setCon={setCon}
       />
     </div>
   )

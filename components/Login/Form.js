@@ -63,7 +63,7 @@ function Form() {
               block: block,
               points: 20,
               multiplier: 1.25,
-              changes: [],
+              changes: [{ type: 'bonus', points: 20 }],
             })
             .then(() => {
               console.log('HERE')

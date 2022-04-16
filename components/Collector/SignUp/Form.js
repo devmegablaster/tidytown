@@ -49,6 +49,8 @@ function Form() {
                 name,
                 phone,
                 aadhar,
+                total,
+                changes: [],
                 city,
                 state,
                 verified: false,
