@@ -35,11 +35,20 @@ function Qr({ user }) {
   const [scannedUser, setScannedUser] = useState({})
   const [data, setData] = useState('')
   const [con, setCon] = useState(false)
+  const [red, setRed] = useState(false)
+
+  if (red) {
+    return (
+      <div>
+        <h1>Done</h1>
+      </div>
+    )
+  }
 
   if (con) {
     return (
       <div className="h-screen w-screen">
-        <Collect scannedUser={scannedUser} user={user} />
+        <Collect scannedUser={scannedUser} user={user} setRed={setRed} />
       </div>
     )
   }
