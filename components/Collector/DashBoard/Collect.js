@@ -166,7 +166,12 @@ function Collect({ user, scannedUser, setRed }) {
                 db.collection('Collectors')
                   .doc(user.uid)
                   .update({
-                    total: user.total + paper + organic + ewaste,
+                    total:
+                      parseInt(user.total) +
+                      parseInt(paper) +
+                      parseInt(organic) +
+                      parseInt(ewaste),
+                    streak: user.streak + 1,
                     changes: firebase.firestore.FieldValue.arrayUnion({
                       type: 'collect',
                       paper,
