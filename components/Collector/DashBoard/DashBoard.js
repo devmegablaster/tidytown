@@ -7,7 +7,7 @@ import Streak from './Streak'
 function DashBoard({ user, setActive }) {
   console.log(user.photoURL)
   return (
-    <div className="flex h-screen w-screen flex-col">
+    <div className="flex h-screen w-screen flex-col pb-10">
       <div className="mx-auto mt-10 flex w-11/12 items-center space-x-4">
         <div className="w-1/6 bg-gray-100">
           <img src={user.photoURL} alt="User" />
