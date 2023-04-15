@@ -61,7 +61,7 @@ function Form() {
   return (
     <div className=" h-screen w-full bg-white pt-2 md:w-7/12 md:rounded-l-3xl">
       <img
-        src="https://gist.githubusercontent.com/MEGA-BLASTER2004/4c4dbac51a6847480da5b89c9829f370/raw/ce89721ecc75a307c08bfd01663fba7515dc2de8/tidytown.svg"
+        src="https://gist.githubusercontent.com/devmegablaster/4c4dbac51a6847480da5b89c9829f370/raw/ce89721ecc75a307c08bfd01663fba7515dc2de8/tidytown.svg"
         alt=""
         onClick={() => {
           Router.push('/collector')
@@ -113,9 +113,8 @@ function Form() {
       <Alert
         icon={<AlertCircle size={16} />}
         title="Error"
-        className={`${
-          alert ? 'flex' : 'hidden'
-        } absolute right-0 bottom-0 z-50 m-2 shadow-xl md:right-5 md:bottom-5 md:m-0`}
+        className={`${alert ? 'flex' : 'hidden'
+          } absolute right-0 bottom-0 z-50 m-2 shadow-xl md:right-5 md:bottom-5 md:m-0`}
         color="red"
         variant="filled"
         onClose={() => setAlert(false)}

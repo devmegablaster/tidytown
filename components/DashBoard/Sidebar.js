@@ -15,9 +15,8 @@ function Sidebar({ user, active, setActive }) {
         <Burger opened={opened} onClick={() => setOpened(!opened)} />
       </div>
       <div
-        className={`${
-          opened ? 'sticky top-0 bottom-0 flex pt-2' : 'hidden'
-        } h-screen w-full
+        className={`${opened ? 'sticky top-0 bottom-0 pb-20 flex pt-0' : 'hidden'
+          } h-screen w-full
 flex-col items-center justify-center bg-gradient-to-b from-[#BCD829] to-[#57AE09] lg:flex
 lg:w-1/5`}
       >

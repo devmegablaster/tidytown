@@ -8,9 +8,8 @@ const RenderScannedUser = ({ setCon, name, society, block, house }) => {
   return (
     <div className="mx-auto flex w-11/12 flex-col items-center justify-center space-y-4">
       <div
-        className={`${
-          name ? 'flex' : 'hidden'
-        } mx-auto w-full items-center justify-between rounded-xl bg-gray-300 p-4`}
+        className={`${name ? 'flex' : 'hidden'
+          } mx-auto w-full items-center justify-between rounded-xl bg-gray-300 p-4`}
       >
         <div className="flex flex-col">
           <h1 className="text-sm font-bold text-gray-500">Scanned User:</h1>
@@ -21,9 +20,8 @@ const RenderScannedUser = ({ setCon, name, society, block, house }) => {
         </div>
         <button
           onClick={() => setCon(true)}
-          className={`${
-            name ? 'flex' : 'hidden'
-          } rounded-lg bg-green-500 p-2 text-white`}
+          className={`${name ? 'flex' : 'hidden'
+            } rounded-lg bg-green-500 p-2 text-white`}
         >
           Continue
         </button>
@@ -42,7 +40,7 @@ function Qr({ user }) {
     return (
       <div className="flex h-screen w-screen flex-col items-center justify-center">
         <img
-          src="https://gist.githubusercontent.com/MEGA-BLASTER2004/2adfdaddcf240e20f87f2cf982f444f9/raw/f3b39d0df116d9c07b59be040a89107ef516ab93/earth.svg"
+          src="https://gist.githubusercontent.com/devmegablaster/2adfdaddcf240e20f87f2cf982f444f9/raw/f3b39d0df116d9c07b59be040a89107ef516ab93/earth.svg"
           alt=""
           className="w-1/2"
         />
