@@ -34,7 +34,7 @@ function Collect({ user, scannedUser, setRed }) {
   const [hasEwaste, setHasEwaste] = useState(false)
   console.log(user)
   return (
-    <div className="h-screen w-screen overflow-scroll pb-20">
+    <div className="h-screen w-screen overflow-scroll pb-10">
       <img
         src="https://gist.githubusercontent.com/devmegablaster/6b859e0fbf523e1eeb72caa3a03b9fb4/raw/167b4e972d9bdae559970314fa2b41e7b76b527a/FillDetails.svg"
         alt=""

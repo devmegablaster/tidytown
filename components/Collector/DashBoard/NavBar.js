@@ -17,7 +17,7 @@ function NavBar({ active, setActive }) {
     </button>
   )
   return (
-    <div className="absolute bottom-0 left-0 right-0 z-50 flex justify-between border-t-2 border-gray-300 bg-white px-8 py-4 shadow-2xl">
+    <div className="sticky bottom-0 left-0 right-0 z-50 flex justify-between border-t-2 border-gray-300 bg-white px-8 py-4 shadow-2xl">
       <NavBtn text={'Home'} index={0} icon={<Home />} />
       <NavBtn text={'Collect Waste'} index={1} icon={<Qrcode />} />
       <NavBtn text={'Settings'} index={2} icon={<Settings />} />
