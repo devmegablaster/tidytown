@@ -26,9 +26,9 @@ function Volunteer() {
         </div>
         <button
           onClick={() => {
-            Router.push('/collector')
+            // Router.push('/collector')
           }}
-          className="rounded-xl bg-green-500 px-4 py-2 text-sm font-medium text-white duration-150 hover:scale-105 hover:bg-green-600 active:scale-95 sm:text-base"
+          className="rounded-xl bg-green-500 px-4 py-2 text-sm font-medium text-white duration-150 hover:scale-105 hover:bg-green-600 active:scale-95 sm:text-base cursor-not-allowed"
         >
           Volunteer Us!
         </button>
