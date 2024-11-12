@@ -71,14 +71,14 @@ function Dashboard({ user, setActive }) {
               setOpenTipsPopup(true)
               setShowTips(false)
             }}
-            className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-16 w-16 animate-pulse cursor-pointer text-white font-bold text-2xl text-center flex items-center justify-center"
+            className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-20 w-20 animate-pulse cursor-pointer text-white font-bold text-2xl text-center flex items-center justify-center"
           >
             Tips
           </div>
         )}
         {openTipsPopup && (
-          <div className="fixed top-0 left-0 w-1/2 h-full bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg">
+          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-8 rounded-lg w-1/2">
               <h1 className="text-2xl font-bold">TidyTown AI Tips</h1>
               {/* Render Tips which are in markdown */}
               <div
