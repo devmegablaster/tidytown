@@ -71,9 +71,9 @@ function Dashboard({ user, setActive }) {
               setOpenTipsPopup(true)
               setShowTips(false)
             }}
-            className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-14 w-14 animate-pulse cursor-pointer text-white font-bold text-2xl"
+            className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-16 w-16 animate-pulse cursor-pointer text-white font-bold text-2xl text-center flex items-center justify-center"
           >
-            !!
+            Tips
           </div>
         )}
         {openTipsPopup && (
