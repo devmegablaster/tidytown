@@ -80,12 +80,12 @@ function Dashboard({ user, setActive }) {
           <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg w-1/2">
               <h1 className="text-2xl font-bold">TidyTown AI Tips</h1>
-              {/* Render Tips which are in markdown points format */}
-              <div
-                className="mt-4 text-lg"
-                dangerouslySetInnerHTML={{ __html: tips }}
-              />
-              <button
+              <p className="mt-4">
+                {tips.split(/\d+\.\s/).map((tip, index) => (
+          <p key={index}>{index + 1}. {tip.trim()}</p>
+        ))}
+              </p>
+                            <button
                 className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg"
                 onClick={() => setOpenTipsPopup(false)}
               >
