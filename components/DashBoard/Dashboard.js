@@ -8,6 +8,7 @@ import QRCode from './QRCode'
 function Dashboard({ user, setActive }) {
   const [expand, setExpand] = useState(false)
   useEffect(() => {
+    async function fetchData() {
     if(user.changes.length > 0) {
      const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -30,6 +31,9 @@ function Dashboard({ user, setActive }) {
       }),
     });
     }
+    }
+
+    fetchData();
   }, [user])
   if (!expand) {
     return (
