@@ -10,6 +10,7 @@ function Dashboard({ user, setActive }) {
   useEffect(() => {
     async function fetchData() {
     if(user.changes.length > 0) {
+        console.log(user.changes);
      const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -17,7 +18,7 @@ function Dashboard({ user, setActive }) {
         Authorization: `Bearer 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`,
       },
       body: JSON.stringify({
-        model: 'gpt-4',
+        model: 'gpt-3',
         messages: [
           {
             role: 'system',
