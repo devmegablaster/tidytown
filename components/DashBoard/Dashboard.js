@@ -21,6 +21,7 @@ function Dashboard({ user, setActive }) {
           </div>
           <PointsHistory changes={user.changes} />
         </div>
+        <div className="absolute bottom-2 right-2 bg-orange-500 rounded-full h-10 w-10"/>
       </div>
     )
   } else {
