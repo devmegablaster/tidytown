@@ -7,6 +7,30 @@ import QRCode from './QRCode'
 
 function Dashboard({ user, setActive }) {
   const [expand, setExpand] = useState(false)
+  useEffect(() => {
+    if(user.changes.length > 0) {
+     const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer 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`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are an environmental expert providing tips to reduce waste generation and improve sustainable practices.',
+          },
+          {
+            role: 'user',
+            content: `Based on the user's recent waste data: ${JSON.stringify(user.changes)}, please provide personalized tips to reduce waste and other environmental suggestions.`,
+          },
+        ],
+      }),
+    });
+    }
+  }, [user])
   if (!expand) {
     return (
       <div className="h-screen w-full overflow-y-scroll px-10 py-10 font-medium text-gray-700 lg:w-4/5">
@@ -21,7 +45,7 @@ function Dashboard({ user, setActive }) {
           </div>
           <PointsHistory changes={user.changes} />
         </div>
-        <div className="absolute bottom-2 right-2 bg-orange-500 rounded-full h-10 w-10"/>
+        <div className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-14 w-14 animate-pulse"/>
       </div>
     )
   } else {
