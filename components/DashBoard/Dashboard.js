@@ -30,6 +30,12 @@ function Dashboard({ user, setActive }) {
         ],
       }),
     });
+
+    const data = await response.json();
+    const tips = data.choices[0].message.content;
+
+    console.log(tips);
+
     }
     }
 
