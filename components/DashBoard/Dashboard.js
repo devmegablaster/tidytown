@@ -7,26 +7,34 @@ import QRCode from './QRCode'
 
 function Dashboard({ user, setActive }) {
   const [expand, setExpand] = useState(false)
+  const [showTips, setShowTips] = useState(false)
+  const [tips, setTips] = useState('')
+  const [openTipsPopup, setOpenTipsPopup] = useState(false)
+
   useEffect(() => {
     async function fetchData() {
-    if(user.changes.length > 0) {
-        console.log(user.changes);
-     const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    if(user.changes.length > 1 && !localStorage.getItem('tipsgiven')) {
+
+  const wasteSummary = user.changes.slice(1).map(entry => {
+    return `Date: ${new Date(entry.timestamp).toLocaleDateString()}, Paper: ${entry.paper} kg, E-waste: ${entry.ewaste} kg, Organic: ${entry.organic} kg`;
+  }).join('\n');
+
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer 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`,
       },
       body: JSON.stringify({
-        model: 'gpt-3',
+        model: 'gpt-4',
         messages: [
           {
             role: 'system',
-            content: 'You are an environmental expert providing tips to reduce waste generation and improve sustainable practices.',
+            content: `You are a helpful assistant focusing on analyzing waste patterns. Review only the type, amount, and dates of recent waste generation. Provide conversational advice based on recent trends, including personalized suggestions to reduce waste types generated in higher amounts.`,
           },
           {
             role: 'user',
-            content: `Based on the user's recent waste data: ${JSON.stringify(user.changes)}, please provide personalized tips to reduce waste and other environmental suggestions.`,
+            content: `Here is the recent waste generation data:\n${wasteSummary}`,
           },
         ],
       }),
@@ -35,8 +43,10 @@ function Dashboard({ user, setActive }) {
     const data = await response.json();
     const tips = data.choices[0].message.content;
 
-    console.log(tips);
+    setShowTips(true);
+    setTips(tips);
 
+    localStorage.setItem('tipsgiven', tips);
     }
     }
 
@@ -56,8 +66,23 @@ function Dashboard({ user, setActive }) {
           </div>
           <PointsHistory changes={user.changes} />
         </div>
-        <div className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-14 w-14 animate-pulse"/>
+        {showTips && (
+        <div onClick={() => {
+          setOpenTipsPopup(true);
+          setShowTips(false);
+          }} className="absolute bottom-3 right-3 bg-orange-500 rounded-full h-14 w-14 animate-pulse cursor-pointer text-white font-bold text-2xl">
+          !!
+        </div>
+        )}
+        {openTipsPopup && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg">
+            <h1 className="text-2xl font-bold">TidyTown AI Tips</h1>
+            <p className="mt-4">{tips}</p>
+            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg" onClick={() => setOpenTipsPopup(false)}>Close</button>
+            </div>
       </div>
+      )}
     )
   } else {
     return (
