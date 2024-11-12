@@ -29,7 +29,7 @@ function Dashboard({ user, setActive }) {
             messages: [
               {
                 role: 'system',
-                content: `You are a helpful assistant focusing on analyzing waste patterns. Review only the type, amount, and dates of recent waste generation. Provide conversational advice based on recent trends, including personalized suggestions to reduce waste types generated in higher amounts.`,
+                content: `You are a helpful assistant focusing on analyzing waste patterns. Review only the type, amount, and dates of recent waste generation. Provide conversational advice based on recent trends, including personalized suggestions to reduce waste types generated in higher amounts. Just give the tips no need to talk to the user. Also give the tips in a friendly and helpful manner. Dont give more than 3 tips.`,
               },
               {
                 role: 'user',
@@ -77,10 +77,16 @@ function Dashboard({ user, setActive }) {
           </div>
         )}
         {openTipsPopup && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="fixed top-0 left-0 w-1/2 h-full bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg">
               <h1 className="text-2xl font-bold">TidyTown AI Tips</h1>
-              <p className="mt-4">{tips}</p>
+              {/* Render Tips which are in markdown */}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: tips,
+                }}
+                className="mt-4"
+              ></div>
               <button
                 className="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg"
                 onClick={() => setOpenTipsPopup(false)}
