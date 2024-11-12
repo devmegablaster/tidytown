@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Download } from 'tabler-icons-react'
 import Multiplier from './Multiplier'
 import Points from './Points'
